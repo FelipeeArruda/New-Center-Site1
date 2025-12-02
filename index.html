@@ -10,19 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        /* Cores Base do Site Original (Ajustadas para Proximidade) */
         :root {
             --newcenter--blue: #02073E;
-            /* Azul Escuro do Header */
             --newcenter--yellow: #FFD700;
-            /* Amarelo/Dourado de Destaque */
             --newcenter--light-blue: #011E93;
-            /* Azul Claro/Médio do Top Bar */
             --newcenter--gray: #f9f9f9;
-            /* Fundo de Seção */
         }
 
-        /* Estilos do Top Bar de Contato */
         .top-bar {
             background-color: var(--newcenter-light-blue);
             color: #fff;
@@ -41,16 +35,14 @@
             text-decoration: none;
         }
 
-        /* Estilos do Header Principal */
         .main-header {
-            background: linear-gradient(90deg, #FFFFFF 50%, var(--newcenter-blue) 50%);
-            /* Simula o gradiente do fundo */
+            background-color: var(--newcenter--blue);
             padding: 10px 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, .05);
         }
 
         .navbar-nav .nav-link {
-            color: var(--newcenter-blue) !important;
+            color: #fff !important;
             font-weight: bold;
             padding: 0.5rem 1rem;
         }
@@ -60,28 +52,25 @@
         }
 
         .navbar-toggler {
-            border-color: var(--newcenter-blue);
+            border-color: #fff;
         }
 
         .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(2, 7, 62)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(255, 255, 255)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
         .btn-whatsapp {
             background-color: #25D366;
-            /* Cor do WhatsApp */
             border-color: #25D366;
             color: #fff;
             font-weight: bold;
         }
 
-        /* Carrossel Principal */
         .carousel-item img {
             height: 350px;
             object-fit: cover;
         }
 
-        /* Seção de Ensino - Replica o CTA Cover */
         .section-ensino {
             background-color: var(--newcenter-gray);
             padding: 4rem 0;
@@ -128,7 +117,6 @@
             right: 0;
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.4);
-            /* Overlay escuro */
             transition: background-color 0.3s ease;
         }
 
@@ -160,7 +148,6 @@
             font-weight: bold;
         }
 
-        /* Seção Quem Somos */
         .section-quemsomos {
             padding: 4rem 0;
         }
@@ -170,7 +157,6 @@
             font-weight: 700;
         }
 
-        /* Footer */
         .main-footer {
             background-color: var(--newcenter--blue);
             color: #fff;
@@ -194,7 +180,6 @@
             font-weight: bold;
             margin-bottom: 15px;
             width: 100%;
-            /* Para alinhar com o design do site */
         }
 
         .footer-social .fa-brands {
@@ -210,17 +195,23 @@
 
         .copyright {
             background-color: #011E93;
-            /* Um azul mais escuro para o rodapé inferior */
             color: white;
             padding: 1rem 0;
             text-align: center;
             font-size: 0.85rem;
         }
 
-        /* Responsividade do Header */
         @media (min-width: 992px) {
             .main-header {
                 background: linear-gradient(90deg, #FFFFFF 65%, var(--newcenter--blue) 35%);
+            }
+
+            .navbar-nav .nav-link {
+                color: var(--newcenter-blue) !important;
+            }
+
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(2, 7, 62)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
             }
         }
     </style>
@@ -422,14 +413,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             var linkInstitucional = document.getElementById('navbarDropdownInstitucional');
 
-            // Define o caminho para a página extra no data-href
-            linkInstitucional.setAttribute('data-target-page', 'institucional.html');
+            linkInstitucional.setAttribute('data-target-page', '#section-quemsomos');
 
             linkInstitucional.addEventListener('click', function (event) {
-                // Verifica se o clique não abriu o dropdown (isso evita conflito)
-                // Se o dropdown for clicado no mobile, ele abre. Se for desktop, ele redireciona.
 
-                // Redireciona para a página extra se o dropdown não estiver visível (desktop)
                 if (!this.classList.contains('show')) {
                     window.location.href = this.getAttribute('data-target-page');
                 }
